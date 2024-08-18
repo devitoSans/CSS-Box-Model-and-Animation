@@ -1,0 +1,74 @@
+:root {
+  --width_custom: 100px;
+  --height_custom: 100px;
+  --border-width_custom: 10px;
+  --first-box-padding: 10px;
+  --second-box-border-up-width: calc(var(--border-width_custom) + 10px);
+
+
+  /* larg box */
+  --large-box-width: calc(var(--first-box-overall-outline) + var(--second-box-overall-outline));
+  --large-box-height: calc(var(--first-box-overall-outline) + var(--second-box-overall-outline) + var(--third-box-overall-outline));
+      /* 3 boxxes */
+      --first-box-overall-outline: calc(var(--width_custom) + 2 * var(--border-width_custom) + 2 * var(--first-box-padding));
+      --second-box-overall-outline: calc(var(--width_custom) + 2 * var(--second-box-border-up-width));
+      --third-box-overall-outline: calc(var(--width_custom) + 2 * var(--border-width_custom));
+
+      --first-box-margin-left: 0px;
+      --second-box-margin-left: calc(var(--first-box-overall-outline) + var(--first-box-margin-left));
+      --third-box-margin-left: calc(var(--second-box-margin-left) - var(--width_custom) - 2 * var(--border-width_custom));
+      /* 3 boxxes */   
+  /* larg box */               
+}
+
+section {
+  /* transform: rotate(0.5turn); */
+  /* width: 50%; */
+  animation: 10s linear 0s infinite normal section;
+  width: var(--large-box-width);
+  height: var(--large-box-height);
+  margin-top: calc(8%);
+  margin-left: calc(50% - var(--first-box-overall-outline));
+}
+
+/* Write your CSS code here */
+div {
+  border: var(--border-width_custom) solid black;
+  width: var(--width_custom);
+  height: var(--height_custom);
+}
+
+#first_box {
+  margin-top: var(--first-box-margin-up);
+  margin-left: var(--first-box-margin-left);
+  background-color: cadetblue;
+
+  padding: var(--first-box-padding);
+}
+p {
+  margin: 0px;
+  font-size: 8px;
+}
+
+#second_box {
+  margin-top: var(--second-box-margin-up);
+  margin-left: var(--second-box-margin-left);
+  background-color: gold;
+
+  border-width: var(--second-box-border-up-width) var(--border-width_custom);
+}
+
+#third_box {
+  margin-top: var(--third-box-margin-up);
+  margin-left: var(--third-box-margin-left);
+  background-color: indianred;
+}
+
+@keyframes section {
+  from {
+    transform: rotate(0.0turn);
+  }
+  to {
+    transform: rotate(1.0turn);
+  }
+}
